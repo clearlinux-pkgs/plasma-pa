@@ -6,7 +6,7 @@
 #
 Name     : plasma-pa
 Version  : 5.14.0
-Release  : 3
+Release  : 4
 URL      : https://download.kde.org/stable/plasma/5.14.0/plasma-pa-5.14.0.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.14.0/plasma-pa-5.14.0.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.14.0/plasma-pa-5.14.0.tar.xz.sig
@@ -21,13 +21,17 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules pkgconfig(glib-2.0)
 BuildRequires : extra-cmake-modules pkgconfig(libpulse)
+BuildRequires : kdeclarative-dev
 BuildRequires : kglobalaccel-dev
+BuildRequires : kpackage-dev
+BuildRequires : kwindowsystem-dev
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(gconf-2.0)
 BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(gobject-2.0)
 BuildRequires : pkgconfig(libcanberra)
 BuildRequires : plasma-framework-dev
+BuildRequires : pulseaudio-dev
 
 %description
 No detailed description available
@@ -82,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1539118364
+export SOURCE_DATE_EPOCH=1539123486
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -90,7 +94,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1539118364
+export SOURCE_DATE_EPOCH=1539123486
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/plasma-pa
 cp COPYING %{buildroot}/usr/share/doc/plasma-pa/COPYING
