@@ -1,6 +1,7 @@
-5.14.5
+5.15.0
 kdeclarative-dev
 kglobalaccel-dev
+kirigami2-dev
 kpackage-dev
 kwindowsystem-dev
 plasma-framework-dev
