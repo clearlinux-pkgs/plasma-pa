@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : plasma-pa
-Version  : 5.15.5
-Release  : 17
-URL      : https://download.kde.org/stable/plasma/5.15.5/plasma-pa-5.15.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.15.5/plasma-pa-5.15.5.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.15.5/plasma-pa-5.15.5.tar.xz.sig
+Version  : 5.16.1
+Release  : 18
+URL      : https://download.kde.org/stable/plasma/5.16.1/plasma-pa-5.16.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.16.1/plasma-pa-5.16.1.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.16.1/plasma-pa-5.16.1.tar.xz.sig
 Summary  : Plasma applet for audio volume management using PulseAudio
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1
@@ -21,14 +21,16 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules pkgconfig(glib-2.0)
 BuildRequires : extra-cmake-modules pkgconfig(libpulse)
+BuildRequires : kdeclarative-dev
 BuildRequires : kglobalaccel-dev
 BuildRequires : kirigami2-dev
-BuildRequires : pkg-config
+BuildRequires : kpackage-dev
+BuildRequires : kwindowsystem-dev
+BuildRequires : libcanberra-dev
 BuildRequires : pkgconfig(gconf-2.0)
-BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(gobject-2.0)
-BuildRequires : pkgconfig(libcanberra)
 BuildRequires : plasma-framework-dev
+BuildRequires : pulseaudio-dev
 
 %description
 No detailed description available
@@ -76,16 +78,17 @@ locales components for the plasma-pa package.
 
 
 %prep
-%setup -q -n plasma-pa-5.15.5
+%setup -q -n plasma-pa-5.16.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557247474
+export SOURCE_DATE_EPOCH=1560883297
 mkdir -p clr-build
 pushd clr-build
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -98,7 +101,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557247474
+export SOURCE_DATE_EPOCH=1560883297
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-pa
 cp COPYING %{buildroot}/usr/share/package-licenses/plasma-pa/COPYING

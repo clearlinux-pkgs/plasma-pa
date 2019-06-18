@@ -1,8 +1,9 @@
-5.15.5
+5.16.1
 kdeclarative-dev
 kglobalaccel-dev
 kirigami2-dev
 kpackage-dev
 kwindowsystem-dev
+libcanberra-dev
 plasma-framework-dev
 pulseaudio-dev
