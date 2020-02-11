@@ -1,10 +1,5 @@
-5.17.5
-kdeclarative-dev
+5.18.0
 kglobalaccel-dev
 kirigami2-dev
-kpackage-dev
-kwindowsystem-dev
 libcanberra-dev
 plasma-framework-dev
-pulseaudio-dev
-util-linux
