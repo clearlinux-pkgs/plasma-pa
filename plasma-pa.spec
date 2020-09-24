@@ -6,7 +6,7 @@
 #
 Name     : plasma-pa
 Version  : 5.19.4
-Release  : 38
+Release  : 39
 URL      : https://download.kde.org/stable/plasma/5.19.4/plasma-pa-5.19.4.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.19.4/plasma-pa-5.19.4.tar.xz
 Source1  : https://download.kde.org/stable/plasma/5.19.4/plasma-pa-5.19.4.tar.xz.sig
