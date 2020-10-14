@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : plasma-pa
-Version  : 5.19.4
-Release  : 39
-URL      : https://download.kde.org/stable/plasma/5.19.4/plasma-pa-5.19.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.19.4/plasma-pa-5.19.4.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.19.4/plasma-pa-5.19.4.tar.xz.sig
+Version  : 5.20.0
+Release  : 40
+URL      : https://download.kde.org/stable/plasma/5.20.0/plasma-pa-5.20.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.20.0/plasma-pa-5.20.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.20.0/plasma-pa-5.20.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1
@@ -77,15 +77,15 @@ locales components for the plasma-pa package.
 
 
 %prep
-%setup -q -n plasma-pa-5.19.4
-cd %{_builddir}/plasma-pa-5.19.4
+%setup -q -n plasma-pa-5.20.0
+cd %{_builddir}/plasma-pa-5.20.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1597644538
+export SOURCE_DATE_EPOCH=1602719853
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -101,12 +101,12 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1597644538
+export SOURCE_DATE_EPOCH=1602719853
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-pa
-cp %{_builddir}/plasma-pa-5.19.4/COPYING %{buildroot}/usr/share/package-licenses/plasma-pa/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/plasma-pa-5.19.4/COPYING.LIB %{buildroot}/usr/share/package-licenses/plasma-pa/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/plasma-pa-5.19.4/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/plasma-pa/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/plasma-pa-5.20.0/COPYING %{buildroot}/usr/share/package-licenses/plasma-pa/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/plasma-pa-5.20.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/plasma-pa/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/plasma-pa-5.20.0/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/plasma-pa/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -151,6 +151,8 @@ popd
 /usr/share/doc/HTML/de/kcontrol/plasma-pa/index.docbook
 /usr/share/doc/HTML/en/kcontrol/plasma-pa/index.cache.bz2
 /usr/share/doc/HTML/en/kcontrol/plasma-pa/index.docbook
+/usr/share/doc/HTML/es/kcontrol/plasma-pa/index.cache.bz2
+/usr/share/doc/HTML/es/kcontrol/plasma-pa/index.docbook
 /usr/share/doc/HTML/id/kcontrol/plasma-pa/index.cache.bz2
 /usr/share/doc/HTML/id/kcontrol/plasma-pa/index.docbook
 /usr/share/doc/HTML/it/kcontrol/plasma-pa/index.cache.bz2
@@ -163,8 +165,6 @@ popd
 /usr/share/doc/HTML/pt_BR/kcontrol/plasma-pa/index.docbook
 /usr/share/doc/HTML/ru/kcontrol/plasma-pa/index.cache.bz2
 /usr/share/doc/HTML/ru/kcontrol/plasma-pa/index.docbook
-/usr/share/doc/HTML/sv/kcontrol/plasma-pa/index.cache.bz2
-/usr/share/doc/HTML/sv/kcontrol/plasma-pa/index.docbook
 /usr/share/doc/HTML/uk/kcontrol/plasma-pa/index.cache.bz2
 /usr/share/doc/HTML/uk/kcontrol/plasma-pa/index.docbook
 
