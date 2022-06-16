@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : plasma-pa
-Version  : 5.24.5
-Release  : 62
-URL      : https://download.kde.org/stable/plasma/5.24.5/plasma-pa-5.24.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.24.5/plasma-pa-5.24.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.24.5/plasma-pa-5.24.5.tar.xz.sig
+Version  : 5.25.0
+Release  : 63
+URL      : https://download.kde.org/stable/plasma/5.25.0/plasma-pa-5.25.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.25.0/plasma-pa-5.25.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.25.0/plasma-pa-5.25.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -25,9 +25,7 @@ BuildRequires : kglobalaccel-dev
 BuildRequires : ki18n-dev
 BuildRequires : kirigami2-dev
 BuildRequires : libcanberra-dev
-BuildRequires : pkgconfig(gconf-2.0)
 BuildRequires : pkgconfig(gio-2.0)
-BuildRequires : pkgconfig(gobject-2.0)
 BuildRequires : pkgconfig(libpulse)
 BuildRequires : pkgconfig(libpulse-mainloop-glib)
 
@@ -77,15 +75,15 @@ locales components for the plasma-pa package.
 
 
 %prep
-%setup -q -n plasma-pa-5.24.5
-cd %{_builddir}/plasma-pa-5.24.5
+%setup -q -n plasma-pa-5.25.0
+cd %{_builddir}/plasma-pa-5.25.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1651620806
+export SOURCE_DATE_EPOCH=1655412135
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -101,20 +99,20 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1651620806
+export SOURCE_DATE_EPOCH=1655412135
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-pa
-cp %{_builddir}/plasma-pa-5.24.5/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/plasma-pa/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/plasma-pa-5.24.5/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/plasma-pa/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/plasma-pa-5.24.5/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/plasma-pa/2123756e0b1fc8243547235a33c0fcabfe3b9a51
-cp %{_builddir}/plasma-pa-5.24.5/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/plasma-pa/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/plasma-pa-5.24.5/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/plasma-pa/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
-cp %{_builddir}/plasma-pa-5.24.5/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/plasma-pa/19d98e1b6f8ef12849ea4012a052d3907f336c91
-cp %{_builddir}/plasma-pa-5.24.5/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/plasma-pa/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/plasma-pa-5.24.5/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/plasma-pa/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/plasma-pa-5.24.5/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/plasma-pa/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/plasma-pa-5.24.5/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/plasma-pa/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/plasma-pa-5.24.5/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/plasma-pa/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/plasma-pa-5.25.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/plasma-pa/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/plasma-pa-5.25.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/plasma-pa/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/plasma-pa-5.25.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/plasma-pa/2123756e0b1fc8243547235a33c0fcabfe3b9a51
+cp %{_builddir}/plasma-pa-5.25.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/plasma-pa/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/plasma-pa-5.25.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/plasma-pa/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/plasma-pa-5.25.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/plasma-pa/19d98e1b6f8ef12849ea4012a052d3907f336c91
+cp %{_builddir}/plasma-pa-5.25.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/plasma-pa/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/plasma-pa-5.25.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/plasma-pa/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/plasma-pa-5.25.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/plasma-pa/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/plasma-pa-5.25.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/plasma-pa/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/plasma-pa-5.25.0/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/plasma-pa/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
