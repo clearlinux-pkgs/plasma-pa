@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : plasma-pa
-Version  : 5.25.5
-Release  : 68
-URL      : https://download.kde.org/stable/plasma/5.25.5/plasma-pa-5.25.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.25.5/plasma-pa-5.25.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.25.5/plasma-pa-5.25.5.tar.xz.sig
+Version  : 5.26.0
+Release  : 69
+URL      : https://download.kde.org/stable/plasma/5.26.0/plasma-pa-5.26.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.26.0/plasma-pa-5.26.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.26.0/plasma-pa-5.26.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
+License  : BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
 Requires: plasma-pa-data = %{version}-%{release}
 Requires: plasma-pa-lib = %{version}-%{release}
 Requires: plasma-pa-license = %{version}-%{release}
@@ -22,7 +22,6 @@ BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
 BuildRequires : kdoctools-dev
 BuildRequires : kglobalaccel-dev
-BuildRequires : ki18n-dev
 BuildRequires : kirigami2-dev
 BuildRequires : libcanberra-dev
 BuildRequires : pkgconfig(gio-2.0)
@@ -75,15 +74,15 @@ locales components for the plasma-pa package.
 
 
 %prep
-%setup -q -n plasma-pa-5.25.5
-cd %{_builddir}/plasma-pa-5.25.5
+%setup -q -n plasma-pa-5.26.0
+cd %{_builddir}/plasma-pa-5.26.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1662502290
+export SOURCE_DATE_EPOCH=1665723302
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -99,10 +98,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1662502290
+export SOURCE_DATE_EPOCH=1665723302
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-pa
 cp %{_builddir}/plasma-pa-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/plasma-pa/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
+cp %{_builddir}/plasma-pa-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/plasma-pa/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
 cp %{_builddir}/plasma-pa-%{version}/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/plasma-pa/3e8971c6c5f16674958913a94a36b1ea7a00ac46 || :
 cp %{_builddir}/plasma-pa-%{version}/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/plasma-pa/2123756e0b1fc8243547235a33c0fcabfe3b9a51 || :
 cp %{_builddir}/plasma-pa-%{version}/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/plasma-pa/a4c60b3fefda228cd7439d3565df043192fef137 || :
@@ -124,6 +124,7 @@ popd
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/applications/kcm_pulseaudio.desktop
 /usr/share/kconf_update/disable_kmix.upd
 /usr/share/kconf_update/plasmaVolumeDisableKMixAutostart.pl
 /usr/share/kde4/apps/kconf_update/disable_kmix.upd
@@ -136,9 +137,6 @@ popd
 /usr/share/kpackage/kcms/kcm_pulseaudio/contents/ui/StreamListItem.qml
 /usr/share/kpackage/kcms/kcm_pulseaudio/contents/ui/VolumeSlider.qml
 /usr/share/kpackage/kcms/kcm_pulseaudio/contents/ui/main.qml
-/usr/share/kpackage/kcms/kcm_pulseaudio/metadata.desktop
-/usr/share/kpackage/kcms/kcm_pulseaudio/metadata.json
-/usr/share/kservices5/kcm_pulseaudio.desktop
 /usr/share/kservices5/plasma-applet-org.kde.plasma.volume.desktop
 /usr/share/metainfo/org.kde.plasma.volume.appdata.xml
 /usr/share/plasma/plasmoids/org.kde.plasma.volume/contents/code/icon.js
@@ -150,6 +148,7 @@ popd
 /usr/share/plasma/plasmoids/org.kde.plasma.volume/contents/ui/ListItemBase.qml
 /usr/share/plasma/plasmoids/org.kde.plasma.volume/contents/ui/SmallToolButton.qml
 /usr/share/plasma/plasmoids/org.kde.plasma.volume/contents/ui/StreamListItem.qml
+/usr/share/plasma/plasmoids/org.kde.plasma.volume/contents/ui/VolumeSlider.qml
 /usr/share/plasma/plasmoids/org.kde.plasma.volume/contents/ui/main.qml
 /usr/share/plasma/plasmoids/org.kde.plasma.volume/metadata.desktop
 /usr/share/plasma/plasmoids/org.kde.plasma.volume/metadata.json
@@ -183,7 +182,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/qt5/plugins/kcms/kcm_pulseaudio.so
+/usr/lib64/qt5/plugins/plasma/kcms/systemsettings/kcm_pulseaudio.so
 /usr/lib64/qt5/qml/org/kde/plasma/private/volume/PulseObjectFilterModel.qml
 /usr/lib64/qt5/qml/org/kde/plasma/private/volume/libplasma-volume-declarative.so
 /usr/lib64/qt5/qml/org/kde/plasma/private/volume/qmldir
@@ -195,6 +194,7 @@ popd
 /usr/share/package-licenses/plasma-pa/3e8971c6c5f16674958913a94a36b1ea7a00ac46
 /usr/share/package-licenses/plasma-pa/7d9831e05094ce723947d729c2a46a09d6e90275
 /usr/share/package-licenses/plasma-pa/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+/usr/share/package-licenses/plasma-pa/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
 /usr/share/package-licenses/plasma-pa/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
 /usr/share/package-licenses/plasma-pa/a4c60b3fefda228cd7439d3565df043192fef137
 /usr/share/package-licenses/plasma-pa/e458941548e0864907e654fa2e192844ae90fc32
