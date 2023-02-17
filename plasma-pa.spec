@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : plasma-pa
-Version  : 5.26.5
-Release  : 74
-URL      : https://download.kde.org/stable/plasma/5.26.5/plasma-pa-5.26.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.26.5/plasma-pa-5.26.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.26.5/plasma-pa-5.26.5.tar.xz.sig
+Version  : 5.27.0
+Release  : 75
+URL      : https://download.kde.org/stable/plasma/5.27.0/plasma-pa-5.27.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.27.0/plasma-pa-5.27.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.27.0/plasma-pa-5.27.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -26,6 +26,8 @@ BuildRequires : libcanberra-dev
 BuildRequires : pkgconfig(gio-2.0)
 BuildRequires : pkgconfig(libpulse)
 BuildRequires : pkgconfig(libpulse-mainloop-glib)
+BuildRequires : pkgconfig(x11)
+BuildRequires : plasma-framework-dev
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -76,15 +78,15 @@ locales components for the plasma-pa package.
 
 
 %prep
-%setup -q -n plasma-pa-5.26.5
-cd %{_builddir}/plasma-pa-5.26.5
+%setup -q -n plasma-pa-5.27.0
+cd %{_builddir}/plasma-pa-5.27.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1673302483
+export SOURCE_DATE_EPOCH=1676673860
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -100,7 +102,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1673302483
+export SOURCE_DATE_EPOCH=1676673860
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-pa
 cp %{_builddir}/plasma-pa-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/plasma-pa/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
@@ -137,14 +139,13 @@ popd
 /usr/share/kpackage/kcms/kcm_pulseaudio/contents/ui/DeviceListItem.qml
 /usr/share/kpackage/kcms/kcm_pulseaudio/contents/ui/MuteButton.qml
 /usr/share/kpackage/kcms/kcm_pulseaudio/contents/ui/StreamListItem.qml
+/usr/share/kpackage/kcms/kcm_pulseaudio/contents/ui/VolumeControlsConfig.qml
 /usr/share/kpackage/kcms/kcm_pulseaudio/contents/ui/VolumeSlider.qml
 /usr/share/kpackage/kcms/kcm_pulseaudio/contents/ui/main.qml
 /usr/share/kservices5/plasma-applet-org.kde.plasma.volume.desktop
 /usr/share/metainfo/org.kde.plasma.volume.appdata.xml
 /usr/share/plasma/plasmoids/org.kde.plasma.volume/contents/code/icon.js
-/usr/share/plasma/plasmoids/org.kde.plasma.volume/contents/config/config.qml
 /usr/share/plasma/plasmoids/org.kde.plasma.volume/contents/config/main.xml
-/usr/share/plasma/plasmoids/org.kde.plasma.volume/contents/ui/ConfigGeneral.qml
 /usr/share/plasma/plasmoids/org.kde.plasma.volume/contents/ui/DeviceListItem.qml
 /usr/share/plasma/plasmoids/org.kde.plasma.volume/contents/ui/HorizontalStackView.qml
 /usr/share/plasma/plasmoids/org.kde.plasma.volume/contents/ui/ListItemBase.qml

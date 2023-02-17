@@ -1,3 +1,5 @@
-5.26.5
+5.27.0
 kglobalaccel-dev
 libcanberra-dev
+pkgconfig(x11)
+plasma-framework-dev
