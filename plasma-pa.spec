@@ -7,7 +7,7 @@
 #
 Name     : plasma-pa
 Version  : 5.27.4
-Release  : 80
+Release  : 81
 URL      : https://download.kde.org/stable/plasma/5.27.4/plasma-pa-5.27.4.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.27.4/plasma-pa-5.27.4.tar.xz
 Source1  : https://download.kde.org/stable/plasma/5.27.4/plasma-pa-5.27.4.tar.xz.sig
@@ -27,6 +27,7 @@ BuildRequires : libcanberra-dev
 BuildRequires : pkgconfig(gio-2.0)
 BuildRequires : pkgconfig(libpulse)
 BuildRequires : pkgconfig(libpulse-mainloop-glib)
+BuildRequires : plasma-framework-dev
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -85,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680714166
+export SOURCE_DATE_EPOCH=1682268088
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -101,7 +102,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1680714166
+export SOURCE_DATE_EPOCH=1682268088
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/plasma-pa
 cp %{_builddir}/plasma-pa-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/plasma-pa/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
