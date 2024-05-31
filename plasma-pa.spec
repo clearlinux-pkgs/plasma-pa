@@ -9,7 +9,7 @@
 #
 Name     : plasma-pa
 Version  : 6.0.5
-Release  : 96
+Release  : 97
 URL      : https://download.kde.org/stable/plasma/6.0.5/plasma-pa-6.0.5.tar.xz
 Source0  : https://download.kde.org/stable/plasma/6.0.5/plasma-pa-6.0.5.tar.xz
 Source1  : https://download.kde.org/stable/plasma/6.0.5/plasma-pa-6.0.5.tar.xz.sig
