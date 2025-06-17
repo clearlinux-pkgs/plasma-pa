@@ -21,6 +21,7 @@ libplasma-volume.so.6:_ZN12GlobalConfig24GlobalMuteDevicesChangedEv
 libplasma-volume.so.6:_ZN12GlobalConfig25RaiseMaximumVolumeChangedEv
 libplasma-volume.so.6:_ZN12GlobalConfig29DefaultOutputDeviceOsdChangedEv
 libplasma-volume.so.6:_ZN12GlobalConfig31MicrophoneSensitivityOsdChangedEv
+libplasma-volume.so.6:_ZN12GlobalConfig33MutedMicrophoneReminderOsdChangedEv
 libplasma-volume.so.6:_ZN12GlobalConfigC1EP7QObject
 libplasma-volume.so.6:_ZN12GlobalConfigC2EP7QObject
 libplasma-volume.so.6:_ZN12GlobalConfigD0Ev
